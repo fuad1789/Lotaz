@@ -1,0 +1,164 @@
+.container {
+  border: 1px solid rgb(144, 136, 136);
+  width: 30%;
+  margin: 20px 0;
+  border-radius: 20px;
+  padding: 15px 0;
+}
+.priceInfo {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.priceInfo p {
+  font-size: 1em;
+  margin-bottom: 3px;
+}
+.priceInfo span {
+  font-size: 0.9em;
+  color: #f27a1a;
+}
+
+.img {
+  width: 100%;
+  padding: 10px 0;
+  padding-top: 0;
+}
+.img img {
+  width: 100%;
+}
+
+.piece {
+  padding: 4px;
+  color: #f27a1a;
+  font-size: 0.8em;
+  border: 1px solid #f27a1a;
+  width: fit-content;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.priceAndTitle {
+  border-top: 1px solid rgb(144, 136, 136);
+  padding: 15px 15px 8px 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.title {
+  font-size: 1em;
+  font-weight: 600;
+}
+.price {
+  color: #f27a1a;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.time {
+  padding: 0 15px;
+  padding-bottom: 8px;
+  font-size: 0.8em;
+}
+.interestContainer {
+  padding: 0 15px;
+}
+.interestContainer p {
+  font-weight: 500;
+  font-size: 0.8em;
+}
+.interestContainer p span {
+  font-weight: normal;
+  color: #f27a1a;
+  font-size: 0.8em;
+}
+
+.interest {
+  border: 1px solid rgb(144, 136, 136);
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.interest p {
+  font-size: 1.3em;
+}
+
+.increase {
+  padding: 6px;
+  border-left: 1px solid rgb(144, 136, 136);
+  color: #f27a1a;
+  background-color: #fbfbfb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.increase:hover {
+  background-color: #dbdbdb;
+}
+
+.increase p {
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+.caunt {
+  flex: 1;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.decrease {
+  background-color: #fbfbfb;
+  color: #f27a1a;
+  border-right: 1px solid rgb(144, 136, 136);
+  font-size: 1.3em;
+  padding: 6px;
+  cursor: pointer;
+}
+.decrease p {
+  padding: 0 6px;
+  cursor: pointer;
+}
+
+.decrease:hover {
+  background-color: #dbdbdb;
+}
+
+.bar {
+  width: 100%;
+  height: 4px;
+  background-color: #dbdbdb;
+  border-radius: 2px;
+  margin: 5px 0;
+}
+.barLine {
+  width: 23%;
+  height: 4px;
+  background-color: #f27a1a;
+  border-radius: 2px;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 1015px) {
+  .container {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+.buttonMenu {
+  display: flex;
+  gap: 10px;
+}
+.card-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1015px) {
+  .buttonMenu {
+    gap: 7px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .card-items {
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 580px) {
+  .card-items {
+    justify-content: center;
+  }
+}

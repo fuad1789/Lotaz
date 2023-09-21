@@ -1,0 +1,123 @@
+.container {
+  position: absolute;
+  right: 0;
+  /* top: 50px; */
+  width: 350px;
+  padding: 10px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+  z-index: 4;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bcbcbc;
+}
+.userInfo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.userInfo section h1 {
+  font-size: 1em;
+  font-weight: 600;
+}
+.userInfo section p {
+  font-size: 0.7em;
+  margin-top: 5px;
+  color: #999;
+}
+
+.walletAndTicket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.walletBox,
+.TicketBox {
+  width: 45%;
+  border-radius: 7px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.walletBox h1,
+.TicketBox h1 {
+  font-weight: 600;
+  font-size: 1em;
+}
+.walletBox p,
+.TicketBox p {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.walletBox button,
+.TicketBox button {
+  font-size: 0.8em;
+  width: 100%;
+  padding: 3px 0;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.walletBox {
+  border: solid 1px #f27a1a;
+}
+.TicketBox {
+  border: solid 1px #15af15;
+}
+.walletBox p {
+  color: #f27a1a;
+}
+.TicketBox p {
+  color: #15af15;
+}
+
+.walletBox button {
+  background-color: #f27a1a;
+}
+.TicketBox button {
+  background-color: #15af15;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.link {
+  display: flex;
+  width: 100%;
+  padding: 5px 0;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.link p {
+  cursor: pointer;
+}
+
+.link:last-child {
+  border-top: 1px solid #bcbcbc;
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 90%;
+  }
+}

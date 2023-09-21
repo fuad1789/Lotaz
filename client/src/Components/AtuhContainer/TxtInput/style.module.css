@@ -1,0 +1,24 @@
+.textInput {
+  border: 1px solid #d2d8d8;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.textInput input {
+  flex: 1;
+  padding: 0.8em 0;
+  padding-right: 10px;
+  font-size: 1em;
+  border-width: 0;
+}
+
+.icon {
+  padding: 0 10px;
+  color: #889090;
+}
+
+.textInput input:focus {
+  outline: none;
+}
