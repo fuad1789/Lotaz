@@ -6,6 +6,7 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  z-index: 3;
 }
 .box {
   position: absolute;
@@ -16,6 +17,7 @@
   width: 40%;
   border-radius: 10px;
   overflow: hidden;
+  z-index: 34536;
 }
 .switch {
   display: flex;

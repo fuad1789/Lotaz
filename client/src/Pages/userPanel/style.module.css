@@ -1,0 +1,264 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header {
+  width: 90%;
+  height: 45px;
+  background: rgb(255, 173, 61);
+  background: linear-gradient(
+    38deg,
+    rgba(255, 147, 0, 1) 0%,
+    rgba(255, 173, 61, 1) 100%
+  );
+  border-radius: 10px;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.BankContainer {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 20px 0;
+}
+
+.links {
+  width: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.link {
+  background-color: #fff;
+  font-size: 1.1em;
+  text-align: start;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (max-width: 600px) {
+  .link {
+    zoom: 0.95;
+  }
+}
+
+.link:hover {
+  color: #f27a1a;
+}
+
+.profileCon {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 3em 0;
+}
+.boxs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
+  font-weight: 600;
+}
+
+.box {
+  padding: 30px;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  align-items: center;
+  gap: 3.5em;
+  width: calc(48% - 30px);
+}
+.box h1 {
+  font-size: 1.6em;
+  text-align: center;
+  border-bottom: 1px solid #f27a1a;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.caunt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: #eee;
+  width: 9em;
+  height: 9em;
+  border-radius: 50%;
+}
+.caunt p {
+  font-size: 3.4em;
+  color: #f27a1a;
+}
+.caunt span {
+  font-size: 1.2em;
+}
+
+.icon {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #f27a1a;
+}
+.icon span {
+  font-size: 0.8em !important;
+}
+
+.paymentBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 2em; */
+}
+
+.paymentBox img {
+  margin-top: 2em;
+  width: 200px;
+}
+.paymentBox h1 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 2em;
+  text-align: center;
+}
+.paymentBox p {
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.paymentBox button {
+  padding: 10px 20px;
+  background-color: #f27a1a;
+  border-radius: 6px;
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+.cardCon {
+  width: 90%;
+}
+
+.paymentCon {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2em 0;
+}
+
+.paymentItem,
+.notficationItem {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.paymentItem:hover,
+.notficationItem:hover {
+  background-color: #eee;
+}
+.paymentItem h1,
+.notficationItem h1 {
+  max-width: 70%;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.notficationItem h1 {
+  color: #f27a1a;
+}
+
+.paymentItem button,
+.notficationItem button {
+  background-color: #f27a1a;
+  padding: 0.2em 0.6em;
+  color: #fff;
+  font-size: 1em;
+  border-radius: 5px;
+}
+.notficationItem button {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .paymentItem,
+  .notficationItem {
+    zoom: 0.8;
+  }
+  .paymentBox {
+    zoom: 0.7;
+  }
+
+  .paymentItem h1,
+  .notficationItem h1 {
+    font-size: 1em;
+  }
+  .paymentItem button,
+  .notficationItem button {
+    font-size: 0.7em;
+  }
+}
+@media screen and (max-width: 850px) {
+  .box {
+    width: 75%;
+  }
+  .boxs {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .paymentBox img {
+    margin-top: 2em;
+    width: 170px;
+  }
+}
+@media screen and (min-width: 1135px) {
+  .header {
+    width: 100%;
+    height: 50px;
+  }
+  .links {
+    width: 100%;
+  }
+  .profileCon {
+    width: 100%;
+  }
+  .paymentCon {
+    width: 100%;
+  }
+  .cardCon {
+    width: 100%;
+  }
+}

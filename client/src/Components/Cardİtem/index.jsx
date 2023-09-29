@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
-export default function Index() {
+export default function Index({ haveticket }) {
   const [count, setCount] = useState(0);
 
   const increase = () => {
@@ -13,7 +13,7 @@ export default function Index() {
   };
 
   return (
-    <div className={style.container}>
+    <div className={style.container} >
       <div className={style.priceInfo}>
         <div>
           <p>Məhsulun dəyəri</p>
@@ -36,33 +36,56 @@ export default function Index() {
         <div className={style.bar}>
           <div className={style.barLine}></div>
         </div>
-        <div className={style.interest}>
-          <div className={style.decrease} onClick={() => decrease()}>
-            <p>-</p>
-          </div>
-          <div className={style.caunt}>{count}</div>
-          <div className={style.increase} onClick={() => increase()}>
-            <p>+</p>
-          </div>
-        </div>
-        <button
-          style={{
-            backgroundColor: count == 0 ? "transparent" : "#f27a1a",
-            border: "1px solid #f27a1a",
-            color: count == 0 ? "#f27a1a" : "#ffffff",
-            fontSize: "1em",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: "10px",
-            padding: "6px",
-            cursor: "pointer",
-            width: "100%",
-            transition: "all 0.4s",
-          }}
-        >
-          Bilet Al
-        </button>
+        {haveticket ? (
+          <button
+            style={{
+              backgroundColor: "#15af15",
+              color: "#ffffff",
+              fontSize: "1em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "10px",
+              padding: "6px",
+              cursor: "pointer",
+              width: "100%",
+              transition: "all 0.4s",
+              marginTop: "20px",
+            }}
+          >
+            4 bilet
+          </button>
+        ) : (
+          <>
+            <div className={style.interest}>
+              <div className={style.decrease} onClick={() => decrease()}>
+                <p>-</p>
+              </div>
+              <div className={style.caunt}>{count}</div>
+              <div className={style.increase} onClick={() => increase()}>
+                <p>+</p>
+              </div>
+            </div>
+            <button
+              style={{
+                backgroundColor: count == 0 ? "transparent" : "#f27a1a",
+                border: "1px solid #f27a1a",
+                color: count == 0 ? "#f27a1a" : "#ffffff",
+                fontSize: "1em",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "10px",
+                padding: "6px",
+                cursor: "pointer",
+                width: "100%",
+                transition: "all 0.4s",
+              }}
+            >
+              Bilet Al
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

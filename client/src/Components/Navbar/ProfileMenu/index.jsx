@@ -10,12 +10,15 @@ import {
 } from "react-icons/io5";
 import { MyContext } from "../../../Context";
 import { useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function Index({ top, closeProfile }) {
   const { user } = useContext(MyContext);
+  const navigate = useNavigate()
 
   const logout = () => {
     localStorage.clear();
+    navigate("/")
     window.location.reload();
   };
 
@@ -41,26 +44,42 @@ export default function Index({ top, closeProfile }) {
         </div>
       </div>
       <div className={style.links}>
-        <div className={style.link}>
+        <Link
+          to={"user/profile"}
+          className={`${style.link} link`}
+          onClick={() => closeProfile()}
+        >
           <IoPersonOutline size={19} />
           <p>Profilim</p>
-        </div>
-        <div className={style.link}>
+        </Link>
+        <div
+          to={"user/tickets"}
+          className={`${style.link} link`}
+          onClick={() => closeProfile()}
+        >
           <IoTicketOutline size={19} />
           <p>Biletlərim</p>
         </div>
-        <div className={style.link}>
+        <Link
+          to={"user/payments"}
+          className={`${style.link} link`}
+          onClick={() => closeProfile()}
+        >
           <IoWalletOutline size={19} />
           <p>Ödənişlərim</p>
-        </div>
-        <div className={style.link}>
+        </Link>
+        <Link
+          to={"user/notfications"}
+          className={`${style.link} link`}
+          onClick={() => closeProfile()}
+        >
           <IoNotificationsOutline size={19} />
           <p>Bildirişlərim</p>
-        </div>
-        <div className={style.link} onClick={() => logout()}>
+        </Link>
+        <button className={style.link} onClick={() => logout()}>
           <IoExitOutline size={19} />
           <p>Hesabdan çıxış</p>
-        </div>
+        </button>
       </div>
       {top == 50 && (
         <div

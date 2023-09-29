@@ -1,6 +1,14 @@
 import React from "react";
 import style from "../style.module.css";
-import { IoCallOutline, IoCloseOutline, IoDocumentOutline, IoHelpOutline, IoInformation, IoWalletOutline } from "react-icons/io5";
+import {
+  IoCallOutline,
+  IoCloseOutline,
+  IoDocumentOutline,
+  IoHelpOutline,
+  IoInformation,
+  IoWalletOutline,
+} from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function Index({ isMenu, setIsMenu }) {
   return (
@@ -14,26 +22,38 @@ export default function Index({ isMenu, setIsMenu }) {
         <IoCloseOutline size={35} />
       </div>
 
-      <div className={style.mobileMenuItem}>
+      <Link
+        to={"/about"}
+        className={`${style.mobileMenuItem} link`}
+        onClick={() => setIsMenu(-100)}
+      >
         <IoInformation size={24} />
         <p>Haqqımızda</p>
-      </div>
-      <div className={style.mobileMenuItem}>
+      </Link>
+      <Link
+        to={"/contact"}
+        className={`${style.mobileMenuItem} link`}
+        onClick={() => setIsMenu(-100)}
+      >
         <IoCallOutline size={19} />
         <p>Əlaqə</p>
-      </div>
-      <div className={style.mobileMenuItem}>
+      </Link>
+      <Link
+        to={"/help"}
+        className={`${style.mobileMenuItem} link`}
+        onClick={() => setIsMenu(-100)}
+      >
         <IoHelpOutline size={19} />
         <p>Yardım</p>
-      </div>
-      <div className={style.mobileMenuItem}>
+      </Link>
+      <Link
+        to={"banks/banktransfer"}
+        className={`${style.mobileMenuItem} link`}
+        onClick={() => setIsMenu(-100)}
+      >
         <IoWalletOutline size={19} />
         <p>Bank Hesab Nömrələri</p>
-      </div>
-      <div className={style.mobileMenuItem}>
-        <IoDocumentOutline size={19} />
-        <p>Qaydalar</p>
-      </div>
+      </Link>
     </div>
   );
 }

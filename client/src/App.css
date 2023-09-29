@@ -2,6 +2,12 @@
   display: flex;
   gap: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .buttonMenu {
+    zoom: 0.9;
+  }
+}
 .card-items {
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./style.module.css";
 import AuthContainer from "../AtuhContainer";
 import useWindowSize from "../../Hooks/useWindowsSize";
@@ -7,13 +7,13 @@ import Menu from "./Menu";
 import MobileMenuLinks from "./MobileMenuLinks";
 import MobileMenu from "./MobileMenu";
 import ProfileMenu from "./ProfileMenu";
-
-
+import { MyContext } from "../../Context";
 
 export default function Index() {
+  const { user } = useContext(MyContext);
   const [isMenu, setIsMenu] = useState(-100);
   const [top, setTop] = useState(-600);
-  const [isModal, setIsModal] = useState(false);
+  const { isModal, setIsModal } = useContext(MyContext);
   const windowDimensions = useWindowSize();
 
   const openModal = () => {
@@ -47,8 +47,7 @@ export default function Index() {
         <MobileMenu isMenu={isMenu} setIsMenu={setIsMenu} />
         <ProfileMenu top={top} closeProfile={closeProfile} />
       </div>
-      {isModal && <AuthContainer closeModal={closeModal} />}
-
+      {isModal && !user && <AuthContainer closeModal={closeModal} />}
     </>
   );
 }

@@ -19,7 +19,7 @@ export default function Index({ placeholder, set, value }) {
         {isSecret ? (
           <IoEyeOutline
             className={style.icon}
-            size={27}
+            // size={50}
             style={{
               borderLeft: "1px solid #9CA0A0",
               cursor: "pointer",
@@ -29,7 +29,7 @@ export default function Index({ placeholder, set, value }) {
         ) : (
           <IoEyeOffOutline
             className={style.icon}
-            size={27}
+            // size={50}
             style={{
               borderLeft: "1px solid #9CA0A0",
               cursor: "pointer",

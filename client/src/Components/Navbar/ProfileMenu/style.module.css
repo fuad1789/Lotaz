@@ -15,7 +15,7 @@
 
 .userInfo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #bcbcbc;

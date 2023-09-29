@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin: 1.3em 0;
   position: relative;
+  z-index: 2;
 }
 .logo {
   display: flex;
@@ -24,6 +25,11 @@
     0 0 30px #f27a1a, 0 0 40px #f27a1a, 0 0 55px #f27a1a, 0 0 75px #f27a1a,
     0px 0px 20px rgba(255, 130, 41, 0);
   cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .container {
+    zoom: 0.9;
+  }
 }
 
 .menu {

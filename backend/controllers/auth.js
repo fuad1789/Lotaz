@@ -40,19 +40,18 @@ const register = async (req, res) => {
 
     const passwordHash = await bcryp.hash(password, 12);
 
-    const newUser = await Auth.create({
+    await Auth.create({
       username,
       email,
       password: passwordHash,
     });
 
-    const userToken = jwt.sign({ ...newUser }, process.env.SECRET_TOKEN, {
+    const userToken = jwt.sign({ id: user._id }, process.env.SECRET_TOKEN, {
       expiresIn: "1h",
     });
 
     res.status(201).json({
       status: "OK",
-      newUser,
       userToken,
     });
   } catch (error) {
@@ -124,7 +123,7 @@ const login = async (req, res) => {
       return res.status(500).json({ message: "Şifrə yanlışdır" });
     }
 
-    const token = jwt.sign({ ...user }, process.env.SECRET_TOKEN, {
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_TOKEN, {
       expiresIn: "1h",
     });
 
@@ -189,12 +188,28 @@ const resetPassword = async (req, res) => {
     user.password = passwordHash;
     await user.save();
 
-    const token = jwt.sign({ ...user }, process.env.SECRET_TOKEN, {
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_TOKEN, {
       expiresIn: "1h",
     });
 
     return res.status(201).json({ token });
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+const getOneUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await Auth.findById(id);
+
+    if (!user) {
+      return res.status(500).json({ message: "Belə bir istifadəçi yoxdur" });
+    }
+
+    return res.status(200).json({ user });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };
 
 module.exports = {
@@ -203,4 +218,5 @@ module.exports = {
   login,
   foregtPasswordOTP,
   resetPassword,
+  getOneUser,
 };
