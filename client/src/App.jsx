@@ -46,7 +46,7 @@ function App() {
       {isLoading ? (
         <Loading />
       ) : (
-        <MyContext.Provider value={{ user, isModal, setIsModal, load }}>
+        <MyContext.Provider value={{ user, isModal,setUser, setIsModal, load }}>
           <Container>
             <Navbar />
           </Container>

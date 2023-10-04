@@ -18,7 +18,7 @@ export default function Index({
   buyers,
   id,
 }) {
-  const { user } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
   const [count, setCount] = useState(0);
   const [isloading, setIsloading] = useState(false);
   const [xticketCount, setTicketCount] = useState(ticketCount);
@@ -61,6 +61,11 @@ export default function Index({
           setCount(0);
           setTicketCount(res.data.ticket.ticketCount);
           setSoldTicketCount(res.data.ticket.soldTicketCount);
+          setUser({
+            ...user,
+            wallet: user.wallet - count * res.data.ticket.ticketPrice,
+            ticket: user.ticket + count,
+          });
           toast.success("Biletiniz alındı");
         })
         .catch((res) => {

@@ -40,7 +40,7 @@ export default function Index({ top, closeProfile }) {
         </div>
         <div className={style.TicketBox}>
           <h1>Bilet</h1>
-          <p>0</p>
+          <p>{user?.ticket}</p>
           <button>Al</button>
         </div>
       </div>
