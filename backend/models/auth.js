@@ -19,6 +19,10 @@ const authSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  ticket: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Auth = mongoose.model("Auth", authSchema);

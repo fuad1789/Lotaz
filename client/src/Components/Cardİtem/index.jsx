@@ -61,6 +61,7 @@ export default function Index({
           setCount(0);
           setTicketCount(res.data.ticket.ticketCount);
           setSoldTicketCount(res.data.ticket.soldTicketCount);
+          toast.success("Biletiniz alındı");
         })
         .catch((res) => {
           toast.error(res.response.data.message);

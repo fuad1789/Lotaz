@@ -10,15 +10,16 @@ import {
 } from "react-icons/io5";
 import { MyContext } from "../../../Context";
 import { useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import formatNumber from "../../../utils/formatNumber";
 
 export default function Index({ top, closeProfile }) {
   const { user } = useContext(MyContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.clear();
-    navigate("/")
+    navigate("/");
     window.location.reload();
   };
 
@@ -34,7 +35,7 @@ export default function Index({ top, closeProfile }) {
       <div className={style.walletAndTicket}>
         <div className={style.walletBox}>
           <h1>Balans</h1>
-          <p>0.00 AZN</p>
+          <p>{formatNumber(user?.wallet)} AZN</p>
           <button>Yüklə</button>
         </div>
         <div className={style.TicketBox}>
