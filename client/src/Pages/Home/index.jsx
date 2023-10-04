@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { OutlineFillButton, Poster, Cards } from "../../Components";
+import axios from "axios";
 
 export default function Index() {
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    const getAllTicket = async () => {
+      await axios("http://localhost:5000/ticket/getAllTickets").then((res) => {
+        setTickets(res.data.tickets);
+      });
+    };
+
+    getAllTicket();
+  }, []);
+
   return (
     <>
       <Poster />
@@ -9,7 +22,7 @@ export default function Index() {
         <OutlineFillButton txt={"Çəkilişlər"} isOutline={false} />
         <OutlineFillButton txt={"Çarxla qazan"} isOutline={true} />
       </div>
-      <Cards />
+      <Cards data={tickets} />
     </>
   );
 }

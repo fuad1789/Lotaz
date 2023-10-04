@@ -10,6 +10,7 @@ import {
 import { MyContext } from "../../../Context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import avatar from "../../../assets/avatar.jpg";
 
 export default function Index({ openModal, openProfile }) {
   const { user } = useContext(MyContext);
@@ -33,9 +34,10 @@ export default function Index({ openModal, openProfile }) {
         <p>Bank Hesab Nömrələri</p>
       </Link>
       {user ? (
-        <div className={`${style.menuItem} link`} onClick={() => openProfile()}>
-          <IoPersonOutline style={{ fontWeight: 600 }} size={19} />
-          <p style={{ fontWeight: 600 }}>{user.username} (0.00 AZN)</p>
+        <div className={`${style.avatarLink} link`} onClick={() => openProfile()}>
+          <div className={style.avatar}>
+            <img src={avatar} alt="profilePic" />
+          </div>
         </div>
       ) : (
         <div onClick={() => openModal()} className={style.menuItem}>

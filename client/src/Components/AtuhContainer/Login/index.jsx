@@ -6,8 +6,6 @@ import SendCodeAgain from "../SendCodeAgain";
 import style from "../style.module.css";
 import { IoMailOutline } from "react-icons/io5";
 import { validateEmail, validatePassword } from "../../../utils/regexs";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import {
@@ -69,27 +67,17 @@ export default function Index() {
     setIsErrLoading(true);
 
     if (!emailReg) {
-      toast("Email forması yanlışdır", {
-        theme: "dark",
-        style: {
-          fontSize: "0.8em",
-        },
-      });
+      toast.error("Email forması yanlışdır");
       setIsErrLoading(false);
       return;
     } else if (!passReg) {
-      toast("Şifrə 6 simvoldan çox olmalıdır!", {
-        theme: "dark",
-        style: {
-          fontSize: "0.8em",
-        },
-      });
+      toast.error("Şifrə 6 simvoldan çox olmalıdır!");
       setIsErrLoading(false);
       return;
     }
 
     axios
-      .post("http://localhost:5000/login", {
+      .post("http://localhost:5000/auth/login", {
         email,
         password,
       })
@@ -100,12 +88,7 @@ export default function Index() {
       })
       .catch(async (err) => {
         setIsErrLoading(false);
-        toast(err.response.data.message, {
-          theme: "dark",
-          style: {
-            fontSize: "0.8em",
-          },
-        });
+        toast.error(err.response.data.message);
       });
   };
 
@@ -115,18 +98,13 @@ export default function Index() {
       const emailReg = validateEmail(forgetEmail);
 
       if (!emailReg) {
-        toast("Email forması yanlışdır", {
-          theme: "dark",
-          style: {
-            fontSize: "0.8em",
-          },
-        });
+        toast.error("Email forması yanlışdır");
         setIsForgetLoading(false);
         return;
       }
 
       await axios
-        .post("http://localhost:5000/foregtPasswordOTP", {
+        .post("http://localhost:5000/auth/foregtPasswordOTP", {
           email: forgetEmail || localStorage.getItem("forgetEmail"),
         })
         .then((res) => {
@@ -146,7 +124,7 @@ export default function Index() {
   const OTPHandle = async () => {
     setOTPLoading(true);
     const OTPCode = localStorage.getItem("OTPcode");
-    const isSame = await bcrypt.compare(forgetOtp, OTPCode);
+    const isSame = bcrypt.compare(forgetOtp, OTPCode);
 
     if (isSame) {
       setNewPassSec(true);
@@ -154,12 +132,7 @@ export default function Index() {
       setOTPLoading(false);
     } else {
       setOTPLoading(false);
-      toast("Yazdığınız doğrulama kodu yanlışdır", {
-        theme: "dark",
-        style: {
-          fontSize: "0.8em",
-        },
-      });
+      toast.error("Yazdığınız doğrulama kodu yanlışdır");
     }
   };
 
@@ -174,18 +147,13 @@ export default function Index() {
       const passReg = validatePassword(newPass);
 
       if (!passReg) {
-        toast("Şifrə 6 simvoldan çox olmalıdır!", {
-          theme: "dark",
-          style: {
-            fontSize: "0.8em",
-          },
-        });
+        toast.error("Şifrə 6 simvoldan çox olmalıdır!");
         setNewPassLoading(false);
         return;
       }
 
       await axios
-        .post("http://localhost:5000/resetPassword", {
+        .post("http://localhost:5000/auth/resetPassword", {
           email: forgetEmail || localStorage.getItem("forgetEmail"),
           newPassword: newPass,
         })
@@ -197,12 +165,7 @@ export default function Index() {
           window.location.reload();
         })
         .catch((err) => {
-          toast(err.data.message, {
-            theme: "dark",
-            style: {
-              fontSize: "0.8em",
-            },
-          });
+          toast.error(err.data.message);
           setNewPassLoading(false);
         });
     } catch (error) {

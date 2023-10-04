@@ -15,6 +15,10 @@ const authSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  wallet: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Auth = mongoose.model("Auth", authSchema);

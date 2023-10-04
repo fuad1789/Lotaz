@@ -1,11 +1,8 @@
 import React from "react";
 import style from "../style.module.css";
 import {
-  IoBagCheckOutline,
   IoCashOutline,
-  IoWalletOutline,
 } from "react-icons/io5";
-// import boxImage from "../../../assets/box.png"
 import paymentImage from "../../../assets/payment.png";
 
 export default function Index() {

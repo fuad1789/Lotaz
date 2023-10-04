@@ -52,14 +52,14 @@ export default function Index({ top, closeProfile }) {
           <IoPersonOutline size={19} />
           <p>Profilim</p>
         </Link>
-        <div
+        <Link
           to={"user/tickets"}
           className={`${style.link} link`}
           onClick={() => closeProfile()}
         >
           <IoTicketOutline size={19} />
           <p>Biletlərim</p>
-        </div>
+        </Link>
         <Link
           to={"user/payments"}
           className={`${style.link} link`}

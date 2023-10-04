@@ -11,8 +11,7 @@ import {
   displayElapsedTime,
 } from "../../../utils/auth";
 import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
 
 export default function Index() {
   const [email, setEmail] = useState("");
@@ -60,31 +59,21 @@ export default function Index() {
       const passReg = validatePassword(password);
 
       if (!emailReg) {
-        toast("Email forması yanlışdır", {
-          theme: "dark",
-          style: {
-            fontSize: "0.8em",
-          },
-        });
+        toast.error("Email forması yanlışdır");
+
         setIsRegLoading(false);
         return;
       } else if (!passReg) {
-        toast("Şifrə 6 simvoldan çox olmalıdır!", {
-          theme: "dark",
-          style: {
-            fontSize: "0.8em",
-          },
-        });
+        toast.error("Şifrə 6 simvoldan çox olmalıdır!");
         setIsRegLoading(false);
         return;
       }
 
       await axios
-        .post("http://localhost:5000/OTPverification", {
+        .post("http://localhost:5000/auth/OTPverification", {
           email: email || localStorage.getItem("email"),
         })
         .then((res) => {
-          console.log(res);
           const databaseDate = new Date();
           localStorage.setItem("OTPCode", res.data.otpCode);
           localStorage.setItem("OTPSection", true);
@@ -99,12 +88,7 @@ export default function Index() {
           setIsRegLoading(false);
         })
         .catch(async (err) => {
-          toast(err.response.data.message, {
-            theme: "dark",
-            style: {
-              fontSize: "0.8em",
-            },
-          });
+          toast.error(err.response.data.message);
           setIsRegLoading(false);
         });
     } catch (err) {
@@ -116,7 +100,7 @@ export default function Index() {
     try {
       setIsOTPBtnLoading(true);
       await axios
-        .post("http://localhost:5000/register", {
+        .post("http://localhost:5000/auth/register", {
           username: username || localStorage.getItem("username"),
           email: email || localStorage.getItem("email"),
           password: password || localStorage.getItem("password"),
@@ -124,17 +108,19 @@ export default function Index() {
           hashedVerificationCode: localStorage.getItem("OTPCode"),
         })
         .then((res) => {
+          console.log(res);
           localStorage.clear();
           localStorage.setItem("userToken", res.data.userToken);
           window.location.reload();
         })
         .catch((err) => {
-          toast(err.data.message);
-          setIsOTPBtnLoading(fasle);
+          console.log(err);
+          toast.error(err.response.data.message);
         });
     } catch (err) {
-      setErrorMessage(err.response.data.message);
-      console.log(err.response.data.message);
+      console.log(err);
+    } finally {
+      setIsOTPBtnLoading(false);
     }
   };
 

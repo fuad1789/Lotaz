@@ -40,13 +40,13 @@ const register = async (req, res) => {
 
     const passwordHash = await bcryp.hash(password, 12);
 
-    await Auth.create({
+    const newUser = await Auth.create({
       username,
       email,
       password: passwordHash,
     });
 
-    const userToken = jwt.sign({ id: user._id }, process.env.SECRET_TOKEN, {
+    const userToken = jwt.sign({ id: newUser._id }, process.env.SECRET_TOKEN, {
       expiresIn: "1h",
     });
 
@@ -68,8 +68,11 @@ const OTPverification = async (req, res) => {
     const url = `https://client.bulkemailverifier.com/api/singlemaildetails?secret=${process.env.VERIFIER_API_KEY}&email=${email}`;
 
     await axios(url)
-      .then((res) => (isValidEmail = res.data.success))
+      .then((r) => {
+        isValidEmail = r.data.result == "valid";
+      })
       .catch((err) => console.log(err));
+
     if (user) {
       return res
         .status(500)

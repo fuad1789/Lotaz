@@ -3,7 +3,7 @@ import "./App.css";
 import { Navbar, Container, Loading } from "./Components";
 import { MyContext } from "./Context";
 import jwtDecode from "jwt-decode";
-import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 
@@ -25,7 +25,7 @@ function App() {
         setIsLoading(true);
         const decodedUserData = await jwtDecode(token);
         userdata = await axios(
-          `http://localhost:5000/getOneUser/${decodedUserData.id}`
+          `http://localhost:5000/auth/getOneUser/${decodedUserData.id}`
         );
         setUser(userdata.data.user);
         setIsLoading(false);
@@ -44,7 +44,7 @@ function App() {
             <Navbar />
           </Container>
           <Outlet />
-          <ToastContainer />
+          <Toaster position="top-center" containerStyle={{fontSize: "1.2em"}}/>
         </MyContext.Provider>
       )}
     </>

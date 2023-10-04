@@ -4,18 +4,6 @@ import style from "./style.module.css";
 import { SyncLoader } from "react-spinners";
 
 export default function CustomButton({ txt, click, disabled, isErrLoading }) {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleButtonClick = async () => {
-    if (!isLoading) {
-      setIsLoading(true);
-      click();
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      setIsLoading(false);
-    }
-  };
 
   return (
     <button
