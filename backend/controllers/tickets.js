@@ -87,6 +87,8 @@ const buyTicket = async (req, res) => {
       ticket.soldTicketCount += count;
       await ticket.save();
     }
+    user.wallet -= count * ticket.ticketPrice;
+    await user.save();
 
     res.json({ ticket });
   } catch (error) {
