@@ -1,6 +1,6 @@
 export default function calculateInterest(totalTickets, soldTickets) {
   var soldTicketInterest = (soldTickets / totalTickets) * 100;
-  return removeDecimalPart(soldTicketInterest);
+  return Math.round(soldTicketInterest);
 }
 function removeDecimalPart(number) {
   // Convert the number to a string

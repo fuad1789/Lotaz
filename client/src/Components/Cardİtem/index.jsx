@@ -83,9 +83,9 @@ export default function Index({
 
   useEffect(() => {
     setInterest(calculateInterest(xticketCount, xsoldTicketCount));
-
+    console.log(interest);
     buyers.map(
-      (buyer) => buyer.user == user.email && setHaveTicketCount(buyer.count)
+      (buyer) => buyer.user == user?.email && setHaveTicketCount(buyer.count)
     );
   }, [xticketCount, xsoldTicketCount]);
 

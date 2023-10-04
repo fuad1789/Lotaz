@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "../style.module.css";
 import { IoBagCheckOutline, IoWalletOutline } from "react-icons/io5";
 import boxImage from "../../../assets/box.png";
 import { Cards } from "../../../Components";
 import axios from "axios";
+import { MyContext } from "../../../Context";
 
 export default function Index() {
   const [tickets, setTickets] = useState([]);
+  const { user } = useContext(MyContext);
 
   useEffect(() => {
     const getSoldTickets = async () => {
       await axios(
-        `https://lotaze.onrender.com/ticket/getSoldTickets/fuadbagiyev@gmail.com`
+        `https://lotaze.onrender.com/ticket/getSoldTickets/${user?.email}`
       )
         .then((res) => {
           setTickets(res.data.buyerTickets);

@@ -20,17 +20,23 @@ function App() {
 
     if (localStorage.getItem("userToken")) {
       const token = localStorage.getItem("userToken");
-      let userdata = null;
       async function fetchData() {
         setIsLoading(true);
         const decodedUserData = await jwtDecode(token);
-        userdata = await axios(
-          `https://lotaze.onrender.com/auth/getOneUser/${decodedUserData.id}`
-        );
-        setUser(userdata.data.user);
-        setIsLoading(false);
+        await axios(
+          `https://lotaze.onrender.com/auth/getOneUser/${decodedUserData?.id}`
+        )
+          .then((res) => {
+            setUser(res.data.user);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
       }
-      fetchData();
+      if (token) {
+        fetchData();
+      } else {
+      }
     }
   }, [localStorage.getItem("userToken")]);
 

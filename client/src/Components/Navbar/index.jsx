@@ -18,6 +18,7 @@ export default function Index() {
 
   const openModal = () => {
     setIsModal(true);
+    localStorage.setItem("swich", "LogIn");
     document.body.style.overflowY = "hidden";
   };
   const closeModal = () => {
@@ -25,6 +26,7 @@ export default function Index() {
     document.body.style.overflowY = "auto";
   };
   const openProfile = () => {
+    localStorage.setItem("swich", "LogIn");
     setTop(50);
   };
   const closeProfile = () => {

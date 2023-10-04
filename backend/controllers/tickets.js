@@ -56,7 +56,7 @@ const buyTicket = async (req, res) => {
     if (!user) {
       return res.status(500).json({ message: "Belə bir istifadəçi yoxdur" });
     }
-    if (user.wallet <= 0) {
+    if (user.wallet <= count * ticket.ticketPrice) {
       return res.status(500).json({
         message:
           "Balansınızda yetərli deyil. Zəhmət olmasa balansınızı artırın",
