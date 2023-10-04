@@ -77,7 +77,7 @@ export default function Index() {
     }
 
     axios
-      .post("http://localhost:5000/auth/login", {
+      .post("https://lotaze.onrender.com/auth/login", {
         email,
         password,
       })
@@ -104,7 +104,7 @@ export default function Index() {
       }
 
       await axios
-        .post("http://localhost:5000/auth/foregtPasswordOTP", {
+        .post("https://lotaze.onrender.com/auth/foregtPasswordOTP", {
           email: forgetEmail || localStorage.getItem("forgetEmail"),
         })
         .then((res) => {
@@ -153,7 +153,7 @@ export default function Index() {
       }
 
       await axios
-        .post("http://localhost:5000/auth/resetPassword", {
+        .post("https://lotaze.onrender.com/auth/resetPassword", {
           email: forgetEmail || localStorage.getItem("forgetEmail"),
           newPassword: newPass,
         })

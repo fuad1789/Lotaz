@@ -25,7 +25,7 @@ function App() {
         setIsLoading(true);
         const decodedUserData = await jwtDecode(token);
         userdata = await axios(
-          `http://localhost:5000/auth/getOneUser/${decodedUserData.id}`
+          `https://lotaze.onrender.com/auth/getOneUser/${decodedUserData.id}`
         );
         setUser(userdata.data.user);
         setIsLoading(false);
@@ -44,7 +44,10 @@ function App() {
             <Navbar />
           </Container>
           <Outlet />
-          <Toaster position="top-center" containerStyle={{fontSize: "1.2em"}}/>
+          <Toaster
+            position="top-center"
+            containerStyle={{ fontSize: "1.2em" }}
+          />
         </MyContext.Provider>
       )}
     </>

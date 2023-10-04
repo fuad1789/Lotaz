@@ -11,7 +11,7 @@ export default function Index() {
   useEffect(() => {
     const getSoldTickets = async () => {
       await axios(
-        `http://localhost:5000/ticket/getSoldTickets/fuadbagiyev@gmail.com`
+        `https://lotaze.onrender.com/ticket/getSoldTickets/fuadbagiyev@gmail.com`
       )
         .then((res) => {
           setTickets(res.data.buyerTickets);

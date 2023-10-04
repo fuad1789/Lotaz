@@ -70,7 +70,7 @@ export default function Index() {
       }
 
       await axios
-        .post("http://localhost:5000/auth/OTPverification", {
+        .post("https://lotaze.onrender.com/auth/OTPverification", {
           email: email || localStorage.getItem("email"),
         })
         .then((res) => {
@@ -100,7 +100,7 @@ export default function Index() {
     try {
       setIsOTPBtnLoading(true);
       await axios
-        .post("http://localhost:5000/auth/register", {
+        .post("https://lotaze.onrender.com/auth/register", {
           username: username || localStorage.getItem("username"),
           email: email || localStorage.getItem("email"),
           password: password || localStorage.getItem("password"),

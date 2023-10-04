@@ -46,7 +46,7 @@ export default function Index({
     try {
       setIsloading(true);
       await axios
-        .put("http://localhost:5000/ticket/buyTicket", {
+        .put("https://lotaze.onrender.com/ticket/buyTicket", {
           count,
           email: user?.email,
           id,

@@ -7,9 +7,11 @@ export default function Index() {
 
   useEffect(() => {
     const getAllTicket = async () => {
-      await axios("http://localhost:5000/ticket/getAllTickets").then((res) => {
-        setTickets(res.data.tickets);
-      });
+      await axios("https://lotaze.onrender.com/ticket/getAllTickets").then(
+        (res) => {
+          setTickets(res.data.tickets);
+        }
+      );
     };
 
     getAllTicket();
